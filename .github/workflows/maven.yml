@@ -20,6 +20,8 @@ jobs:
      - uses: actions/checkout@v4
      - name: test
        run: mvn test
+     - name: Fail intentionally
+       run: exit 1
 
  package:
    runs-on: ubuntu-latest
