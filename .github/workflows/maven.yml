@@ -2,7 +2,7 @@ name: Package Java App
 
 on:
   push: 
-   branches: [ "main" ]
+    branches: [ "main" ]
 
 jobs:
  compile:
