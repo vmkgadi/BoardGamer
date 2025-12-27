@@ -1,8 +1,8 @@
 name: Package Java App
 
 on:
- push: 
-  branches: [ "main" ]
+  push: 
+   branches: [ "main" ]
 
 jobs:
  compile:
