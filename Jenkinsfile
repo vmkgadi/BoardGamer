@@ -8,7 +8,7 @@ pipeline {
     }
 
     tools {
-        jdk 'jdk17'   // configure this in Jenkins
+        jdk 'jdk17'   // configure this in Jenikins
         maven 'maven3'
     }
 
