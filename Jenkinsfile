@@ -1,27 +1,26 @@
-pipeline {
+pipeline
+{
     agent any
-    
-    tools {
-        jdk 'jdk17'
-        maven 'maven3'
-    }
-    
-    stages {   
-        stage('Compile') {
-            steps {
-            sh 'mvn compile'
-            }
-        }
-        
-        stage('Test') {
-            steps {
-                sh 'mvn test'
-            }
-        }
-        
+
+    stages {
         stage('Build') {
             steps {
-                sh 'mvn package'
+                echo 'Building...'
+                sh 'mvn clean package -DskipTests' // Add your build commands here
+            }
+        }
+        stage("Docker Build") {
+            steps {
+                echo 'Building Docker image...'
+                sh 'docker build -t myapp:latest .' // Add your Docker build commands here}
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+                sh '''
+                docker run -d -p 8082:8080 myapp:latest
+                ''' // Add your deploy commands here
             }
         }
     }
